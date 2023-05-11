@@ -10,10 +10,16 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Install JMeter
+      run: |
+        wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-5.4.1.tgz
+        tar -xzf apache-jmeter-5.4.1.tgz
+    
     - name: Run JMeter
       run: |
         chmod +x ./apache-jmeter-5.4.1/bin/jmeter
         ./apache-jmeter-5.4.1/bin/jmeter -n -t ./scripts/reqres.jmx -l ./scripts/results.jtl -Jcsvfile=./test-data/pages_data.csv
+        
     - name: Upload results
       uses: actions/upload-artifact@v2
       with:
