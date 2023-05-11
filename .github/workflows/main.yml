@@ -18,7 +18,7 @@ jobs:
     - name: Run JMeter
       run: |
         chmod +x ./apache-jmeter-5.5/bin/jmeter
-        ./apache-jmeter-5.5/bin/jmeter -n -t ./scripts/reqres.jmx -l ./scripts/results.jtl -Jcsvfile=./test-data/pages_data.csv -Ldebug -j ./test-data/debug.log
+        ./apache-jmeter-5.5/bin/jmeter -n -t ./scripts/reqres.jmx -l ./scripts/results.jtl -Jcsvfile=./test-data/pages_data2.csv -j ./test-data/debug.log
         
     - name: Upload results
       uses: actions/upload-artifact@v2
