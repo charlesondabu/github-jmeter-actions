@@ -6,13 +6,13 @@ on:
 
 jobs:
   jmeter:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Install JMeter
       run: |
-        java --version
+        java -version
         wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.tgz
         tar -xzf apache-jmeter-5.5.tgz
     
