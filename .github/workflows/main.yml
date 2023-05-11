@@ -11,8 +11,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Run JMeter
-      uses: public-transportation-tools/jmeter-action@v2.2
+      run: |
+        chmod +x ./apache-jmeter-5.4.1/bin/jmeter
+        ./apache-jmeter-5.4.1/bin/jmeter -n -t ./scripts/reqres.jmx -l ./scripts/results.jtl -Jcsvfile=./test-data/pages_data.csv
+    - name: Upload results
+      uses: actions/upload-artifact@v2
       with:
-        script-file: ./scripts/reqres.jmx
-        jmeter-version: 5.4.1
-        jmeter-opts: "-Jthreads=10 -Jrampup=60 -Jduration=300,-JdataFile=./test-data/pages_data.csv"
+        name: JMeter Results
+        path: results.jtl
