@@ -12,8 +12,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Install JMeter
       run: |
-        wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-5.4.1.tgz
-        tar -xzf apache-jmeter-5.4.1.tgz
+        wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.tgz
+        tar -xzf apache-jmeter-5.5.tgz
     
     - name: Run JMeter
       run: |
